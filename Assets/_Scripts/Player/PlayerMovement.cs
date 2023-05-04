@@ -54,7 +54,7 @@ public class PlayerMovement : GridXYGameObject
 			CheckDirectionToFace(_moveInput.x > 0);
 		#endregion
 
-		Debug.Log("Player standing grid position "+ GridXY.GetXY(transform.position));
+		// Debug.Log("Player standing grid position "+ GridXY.GetXY(transform.position));
 		
 	}
 

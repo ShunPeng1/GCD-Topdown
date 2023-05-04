@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8571261964316148926}
   - component: {fileID: 8571261964316148922}
   - component: {fileID: 8571261964316148921}
+  - component: {fileID: 2881431602068788114}
+  - component: {fileID: 1054587169}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -151,9 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa551f6f587dd2041863fdac23c3ee73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  collisionOffset: 0.02
-  contactFilter:
+  Speed: 5
+  CollisionOffset: 0.01
+  ContactFilter:
     useTriggers: 0
     useLayerMask: 0
     useDepth: 0
@@ -193,3 +195,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2881431602068788114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8571261964316148927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757c2cb13a77c2244a50be282f041146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 5
+  iFramesDuration: 0.5
+  flashesAmount: 2
+--- !u!114 &1054587169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8571261964316148927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1268fdfde432f408e4f790d9304e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointerPosition: {fileID: -3841368962275439260, guid: 62c90a87665036642ae9be1c39c125ed, type: 3}

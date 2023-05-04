@@ -25,7 +25,7 @@ public class PlayerController : GridXYGameObject
 
     private void Update()
     {
-        Debug.Log("Player standing grid position "+ GridXY.GetXY(transform.position));
+        // Debug.Log("Player standing grid position "+ GridXY.GetXY(transform.position));
     }
 
     private void FixedUpdate() {
