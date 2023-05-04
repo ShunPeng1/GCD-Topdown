@@ -5,35 +5,35 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f;
-    public float collisionOffset = 0.01f;
-    Rigidbody2D playerRb;
-    Vector2 moveInput;
-    public ContactFilter2D contactFilter;
-    List<RaycastHit2D> castCollision = new List<RaycastHit2D>();
+    public float Speed = 5f;
+    public float CollisionOffset = 0.01f;
+    Rigidbody2D _playerRb;
+    Vector2 _moveInput;
+    public ContactFilter2D ContactFilter;
+    List<RaycastHit2D> _castCollision = new List<RaycastHit2D>();
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody2D>();
+        _playerRb = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate() {
-        if (moveInput != Vector2.zero) {
-            bool canMove = TryMove(moveInput);
+        if (_moveInput != Vector2.zero) {
+            bool canMove = TryMove(_moveInput);
 
             if (!canMove) {
-                canMove = TryMove(new Vector2(moveInput.x, 0));
+                canMove = TryMove(new Vector2(_moveInput.x, 0));
 
                 if (!canMove) {
-                    canMove = TryMove(new Vector2(0, moveInput.y));
+                    canMove = TryMove(new Vector2(0, _moveInput.y));
                 }
             }
         }
     }
 
     private bool TryMove(Vector2 direction) {
-        int count = playerRb.Cast(direction, contactFilter, castCollision, speed * Time.fixedDeltaTime + collisionOffset);
+        int count = _playerRb.Cast(direction, ContactFilter, _castCollision, Speed * Time.fixedDeltaTime + CollisionOffset);
         if (count == 0) {
-            playerRb.MovePosition(playerRb.position + direction * speed * Time.fixedDeltaTime);
+            _playerRb.MovePosition(_playerRb.position + direction * Speed * Time.fixedDeltaTime);
             return true;
         }
 
@@ -41,6 +41,6 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnMove(InputValue moveValue) {
-        moveInput = moveValue.Get<Vector2>();
+        _moveInput = moveValue.Get<Vector2>();
     }
 }
