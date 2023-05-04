@@ -51,6 +51,7 @@ public class PlayerController : GridXYGameObject
 
         return false;
     }
+    
 
     void OnMove(InputValue moveValue) {
         _moveInput = moveValue.Get<Vector2>();
