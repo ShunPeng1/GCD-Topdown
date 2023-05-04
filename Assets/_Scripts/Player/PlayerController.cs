@@ -1,21 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+public class PlayerController : GridXYGameObject
 {
     public float Speed = 5f;
     public float CollisionOffset = 0.01f;
-    Rigidbody2D _playerRb;
-    Vector2 _moveInput;
+    private Rigidbody2D _playerRb;
+    Vector2 _moveInput = new Vector2(0,0);
     public ContactFilter2D ContactFilter;
-    List<RaycastHit2D> _castCollision = new List<RaycastHit2D>();
+
+    private List<RaycastHit2D> _castCollision = new List<RaycastHit2D>();
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         _playerRb = GetComponent<Rigidbody2D>();
+        
+        
     }
+
+    private void Update()
+    {
+        Debug.Log("Player standing grid position "+ GridXY.GetXY(transform.position));
+    }
+
     private void FixedUpdate() {
         if (_moveInput != Vector2.zero) {
             bool canMove = TryMove(_moveInput);
@@ -33,7 +45,7 @@ public class PlayerController : MonoBehaviour
     private bool TryMove(Vector2 direction) {
         int count = _playerRb.Cast(direction, ContactFilter, _castCollision, Speed * Time.fixedDeltaTime + CollisionOffset);
         if (count == 0) {
-            _playerRb.MovePosition(_playerRb.position + direction * Speed * Time.fixedDeltaTime);
+            _playerRb.MovePosition(_playerRb.position + direction * (Speed * Time.fixedDeltaTime));
             return true;
         }
 

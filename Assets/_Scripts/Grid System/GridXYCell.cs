@@ -5,7 +5,7 @@ using UnityEngine;
 public class GridXYCell
 {
     [Header("Base")]
-    private GridXY<GridXYCell> _gridXY;
+    private readonly GridXY<GridXYCell> _gridXY;
     private readonly int _xIndex;
     private readonly int _yIndex;
     private int _a;
@@ -20,11 +20,11 @@ public class GridXYCell
     public int GCost;
     
     
-    public GridXYCell(GridXY<GridXYCell> grid, int x, int z, bool isObstacle = false, GridXYGameObject gridGameObject = null)
+    public GridXYCell(GridXY<GridXYCell> grid, int x, int y, bool isObstacle = false, GridXYGameObject gridGameObject = null)
     {
         _gridXY = grid;
         _xIndex = x;
-        _yIndex = z;
+        _yIndex = y;
         IsObstacle = isObstacle;
         GridGameObject = gridGameObject;
     }
@@ -44,23 +44,23 @@ public class GridXYCell
             if (rawItem != null)
             {
                 AdjacentItems.Add(rawItem);
-                //Debug.Log("("+_xIndex+","+_zIndex+") adjacent to ("+rawItem._xIndex+","+rawItem._zIndex+")");
             }
         }
         
     }
 
-    public void SetGameObject(GameObject gameObject, bool isObstacle)
+    public void SetGameObject(GridXYGameObject gameObject, bool isObstacle = false)
     {
-        
+        GridGameObject = gameObject;
+        IsObstacle = isObstacle;
     }
     
-    public static (int xDiff, int zDiff) GetIndexDifference(GridXYCell first, GridXYCell second)
+    public static (int xDiff, int yDiff) GetIndexDifference(GridXYCell first, GridXYCell second)
     {
         return (second._xIndex - first._xIndex , second._yIndex-first._yIndex);
     }
     
-    public static (int xDiff, int zDiff) GetIndexDifferenceAbsolute(GridXYCell first, GridXYCell second)
+    public static (int xDiff, int yDiff) GetIndexDifferenceAbsolute(GridXYCell first, GridXYCell second)
     {
         return (Mathf.Abs(second._xIndex - first._xIndex), Mathf.Abs(second._yIndex - first._yIndex));
     }

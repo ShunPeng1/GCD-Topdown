@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class GridXYGameObject : MonoBehaviour
 {
-    private GridXY<GridXYCell> _gridXY;
+    protected GridXY<GridXYCell> GridXY;
 
-    private void Start()
+    protected virtual void Start()
     {
-        
+        GridXY = GridManager.Instance.WorldGrid;
+        GridXY.SetGridGameObject(this, transform.position);
     }
+    
 }
