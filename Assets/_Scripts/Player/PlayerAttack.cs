@@ -6,8 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private InputActionReference pointerPosition;
-    private float mousePosX;
-    private float mousePosY;
+    private Vector2 mousePos;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +16,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = GetPointerInput();
-        mousePosX = mousePos.x / mousePos.magnitude;
-        mousePosY = mousePos.y / mousePos.magnitude;
+        mousePos = GetPointerInput();
     }
     private Vector2 GetPointerInput() {
         Vector3 mousePos = pointerPosition.action.ReadValue<Vector2>();
