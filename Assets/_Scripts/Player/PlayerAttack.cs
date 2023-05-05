@@ -23,4 +23,6 @@ public class PlayerAttack : MonoBehaviour
         mousePos.z = Camera.main.nearClipPlane;
         return Camera.main.ScreenToWorldPoint(mousePos);
     }
+
+    
 }

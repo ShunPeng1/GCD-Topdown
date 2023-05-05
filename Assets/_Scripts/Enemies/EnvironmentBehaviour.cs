@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnvironmentBehaviour : MonoBehaviour
 {
     [SerializeField] private float maxHitPoint;
+    [SerializeField] private LayerMask _playerLayerMask;
     private float currHitPoint;
     [SerializeField] private EnvironmentHealthBar healthBarBehavior;
+    [SerializeField] private float detectionRange;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +24,24 @@ public class EnvironmentBehaviour : MonoBehaviour
         }
     }
 
+    private void OnMouseDown() {
+        if (TargetDectection() != null) {
+            TakeDamge(1);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.P)) {
-        //     TakeDamge(1);
-        // }
+        
+        
+    }
+
+    private Collider2D TargetDectection() {
+        return Physics2D.OverlapCircle(transform.position, detectionRange, _playerLayerMask);
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }

@@ -13,11 +13,10 @@ public class EnvironmentHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        heathBar.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + _offset);
+        // heathBar.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + _offset);
     }
 
     public void SetHealth(float currHealth, float maxHealth) {
-        Debug.Log(currHealth < maxHealth);
         heathBar.gameObject.SetActive(currHealth < maxHealth);
         heathBar.value = currHealth;
         heathBar.maxValue = maxHealth;
