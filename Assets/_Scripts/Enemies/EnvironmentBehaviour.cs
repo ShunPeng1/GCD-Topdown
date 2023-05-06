@@ -9,11 +9,14 @@ public class EnvironmentBehaviour : MonoBehaviour
     private float currHitPoint;
     [SerializeField] private EnvironmentHealthBar healthBarBehavior;
     [SerializeField] private float detectionRange;
+    private Animator anim;
+    [SerializeField] private GameObject outline;
     // Start is called before the first frame update
     void Start()
     {
         currHitPoint = maxHitPoint;
         healthBarBehavior.SetHealth(currHitPoint, maxHitPoint);
+        anim = GetComponent<Animator>();
     }
 
     private void TakeDamge(float _value) {
@@ -22,6 +25,15 @@ public class EnvironmentBehaviour : MonoBehaviour
         if (currHitPoint <= 0) {
             Destroy(gameObject);
         }
+    }
+
+    private void OnMouseEnter() {
+        outline.SetActive(true);
+
+    }
+
+    private void OnMouseExit() {
+        outline.SetActive(false);
     }
 
     private void OnMouseDown() {
