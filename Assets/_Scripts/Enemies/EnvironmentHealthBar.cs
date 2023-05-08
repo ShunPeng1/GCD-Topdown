@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class EnvironmentHealthBar : MonoBehaviour
 {
-    [SerializeField] private Slider heathBar;
-    [SerializeField] private Color low;
-    [SerializeField] private Color high;
+    [SerializeField] private Slider _heathBar;
+    [SerializeField] private Color _low;
+    [SerializeField] private Color _high;
     [SerializeField] private Vector3 _offset;
 
     // Update is called once per frame
@@ -17,10 +17,10 @@ public class EnvironmentHealthBar : MonoBehaviour
     }
 
     public void SetHealth(float currHealth, float maxHealth) {
-        heathBar.gameObject.SetActive(currHealth < maxHealth);
-        heathBar.value = currHealth;
-        heathBar.maxValue = maxHealth;
+        _heathBar.gameObject.SetActive(currHealth < maxHealth);
+        _heathBar.value = currHealth;
+        _heathBar.maxValue = maxHealth;
 
-        heathBar.fillRect.GetComponent<Image>().color = Color.Lerp(low, high, heathBar.normalizedValue);
+        _heathBar.fillRect.GetComponent<Image>().color = Color.Lerp(_low, _high, _heathBar.normalizedValue);
     }
 }

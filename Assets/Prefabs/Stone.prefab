@@ -344,13 +344,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc91e2c3a68d2d479da0d0a7cb2239f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoint: 5
+  _maxHitPoint: 5
   _playerLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  healthBarBehavior: {fileID: 4525679024536733752}
-  detectionRange: 1
-  outline: {fileID: 100022784}
+  _healthBarBehavior: {fileID: 4525679024536733752}
+  _detectionRange: 1
+  _outline: {fileID: 100022784}
 --- !u!1 &4525679024536733759
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,9 +465,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9fbb9bebe8b014f8b11bdb3024ed07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heathBar: {fileID: 4525679025471113758}
-  low: {r: 1, g: 0, b: 0, a: 1}
-  high: {r: 0.031248331, g: 1, b: 0, a: 1}
+  _heathBar: {fileID: 4525679025471113758}
+  _low: {r: 1, g: 0, b: 0.019001007, a: 1}
+  _high: {r: 0, g: 1, b: 0, a: 1}
   _offset: {x: 0, y: 1, z: 0}
 --- !u!1 &4525679025471114208
 GameObject:

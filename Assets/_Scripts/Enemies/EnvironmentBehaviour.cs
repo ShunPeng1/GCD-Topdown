@@ -2,43 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnvironmentBehaviour : MonoBehaviour
+public class EnvironmentBehaviour : GridXYGameObject
 {
-    [SerializeField] private float maxHitPoint;
+    [SerializeField] private float _maxHitPoint;
     [SerializeField] private LayerMask _playerLayerMask;
-    private float currHitPoint;
-    [SerializeField] private EnvironmentHealthBar healthBarBehavior;
-    [SerializeField] private float detectionRange;
-    private Animator anim;
-    [SerializeField] private GameObject outline;
+    private float _currHitPoint;
+    [SerializeField] private EnvironmentHealthBar _healthBarBehavior;
+    [SerializeField] private float _detectionRange;
+    private Animator _animator;
+    [SerializeField] private GameObject _outline;
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        currHitPoint = maxHitPoint;
-        healthBarBehavior.SetHealth(currHitPoint, maxHitPoint);
-        anim = GetComponent<Animator>();
+        base.Start();
+        _currHitPoint = _maxHitPoint;
+        _healthBarBehavior.SetHealth(_currHitPoint, _maxHitPoint);
+        _animator = GetComponent<Animator>();
     }
 
-    private void TakeDamge(float _value) {
-        currHitPoint = Mathf.Clamp(currHitPoint - _value, 0, maxHitPoint);
-        healthBarBehavior.SetHealth(currHitPoint, maxHitPoint);
-        if (currHitPoint <= 0) {
+    private void TakeDamage(float _value) {
+        _currHitPoint = Mathf.Clamp(_currHitPoint - _value, 0, _maxHitPoint);
+        _healthBarBehavior.SetHealth(_currHitPoint, _maxHitPoint);
+        if (_currHitPoint <= 0) {
             Destroy(gameObject);
         }
     }
 
     private void OnMouseEnter() {
-        outline.SetActive(true);
+        _outline.SetActive(true);
 
     }
 
     private void OnMouseExit() {
-        outline.SetActive(false);
+        _outline.SetActive(false);
     }
 
     private void OnMouseDown() {
-        if (TargetDectection() != null) {
-            TakeDamge(1);
+        if (TargetDetection() != null) {
+            TakeDamage(1);
         }
     }
 
@@ -49,11 +50,11 @@ public class EnvironmentBehaviour : MonoBehaviour
         
     }
 
-    private Collider2D TargetDectection() {
-        return Physics2D.OverlapCircle(transform.position, detectionRange, _playerLayerMask);
+    private Collider2D TargetDetection() {
+        return Physics2D.OverlapCircle(transform.position, _detectionRange, _playerLayerMask);
     }
 
     private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Gizmos.DrawWireSphere(transform.position, _detectionRange);
     }
 }
