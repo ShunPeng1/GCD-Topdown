@@ -8,17 +8,18 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerSystem), typeof(Rigidbody2D))]
 public class PlayerMovement : GridXYGameObject
 {
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manuly change all references in this script
+	
+	
+	#region COMPONENTS
 	private PlayerSystem _playerSystem; 
 	private PlayerDataSO _movementData;
-
-	#region COMPONENTS
-
 	private Rigidbody2D _rigidbody2D { get; set; }
 	//Script to handle all player animations, all references can be safely removed if you're importing into your own project.
 	#endregion
@@ -32,6 +33,8 @@ public class PlayerMovement : GridXYGameObject
 	#endregion
 
 	#region INPUT PARAMETERS
+
+	[SerializeField] private InputActionReference _moveInputAction;
 	private Vector2 _moveInput;
 	#endregion
 	
@@ -47,19 +50,32 @@ public class PlayerMovement : GridXYGameObject
 		base.Start();
 		_isFacingRight = true;
 	}
+    
+    void HandleInput() {
+	    _moveInput = _moveInputAction.action.ReadValue<Vector2>();
+	    _moveInput.x = _moveInput.x != 0 ? 1 * Mathf.Sign(_moveInput.x) : 0;
+	    _moveInput.y = _moveInput.y != 0 ? 1 * Mathf.Sign(_moveInput.y) : 0;
+	    Debug.Log("MOVE "+ _moveInput);
+	    if (_moveInput.x != 0)
+		    CheckDirectionToFace(_moveInput.x > 0);
+
+    }
 
 	private void Update()
 	{
 		#region INPUT HANDLER
-		_moveInput.x = Input.GetAxisRaw("Horizontal");
-		_moveInput.y = Input.GetAxisRaw("Vertical");
 
-		if (_moveInput.x != 0)
-			CheckDirectionToFace(_moveInput.x > 0);
+		HandleInput();
+		//_moveInput.x = Input.GetAxisRaw("Horizontal");
+		//_moveInput.y = Input.GetAxisRaw("Vertical");
+
+		//if (_moveInput.x != 0)
+		//	CheckDirectionToFace(_moveInput.x > 0);
+
 		#endregion
 
 		// Debug.Log("Player standing grid position "+ GridXY.GetXY(transform.position));
-		
+
 	}
 
     private void FixedUpdate()
