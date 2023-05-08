@@ -2,41 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerSystem))]
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Health")]
-    [SerializeField] private float startingHealth;
-    public float currentHealth { get; private set; }
-    private Animator anim;
-    private bool isDead;
+    
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int flashesAmount;
+
+    private PlayerSystem _playerSystem;
+    private PlayerDataSO _playerData;
     private SpriteRenderer _renderer;
-    private void Awake() {
-        currentHealth = startingHealth;
-        anim = GetComponent<Animator>();
-        _renderer = GetComponent<SpriteRenderer>();
+    private void Awake()
+    {
+        _playerSystem = GetComponent<PlayerSystem>();
+        _playerData = _playerSystem.PlayerData;
+        
+        _playerData.MaxHealth = _playerData.InitHealth;
+        _playerData.CurrentHealth = _playerData.InitHealth;
+        _playerData.OnChangeCurrentHealth += ChangeHealthEvent;
+
+        _renderer = GetComponent<SpriteRenderer>(); 
     }
 
-    public void TakeDamge(float _dmgValue) {
-        currentHealth = Mathf.Clamp(currentHealth - _dmgValue, 0, startingHealth);
-        if (currentHealth > 0) {
-            // anim.SetTrigger("Hurt");
-            StartCoroutine(Invulnerability());
-        }
-        else {
-            if (!isDead) {
-                // anim.SetTrigger("Dead");
-                // GetComponent<PlayerController>().enabled = false;
-                isDead = true;
+    private void ChangeHealthEvent(float newHealth, float changeValue) {
+        
+        if(changeValue < 0) // Lose Health
+        {
+            if (newHealth > 0) {
+                // anim.SetTrigger("Hurt");
+                StartCoroutine(Invulnerability());
+            }
+            else {
+                Debug.Log("Death");
             }
             
         }
+        else // Add Health
+        {
+            
+        }
     }
-    public void AddHealth(float _value) {
-        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+
+    public void ChangeHealth(float changeValue)
+    {
+        
     }
+    
     private IEnumerator Invulnerability() {
         Physics2D.IgnoreLayerCollision(0, 5, true);
         for (int i = 0; i < flashesAmount; i++) {
@@ -47,9 +59,11 @@ public class PlayerHealth : MonoBehaviour
         }
         Physics2D.IgnoreLayerCollision(0, 5, false);
     }
-    // private void Update() {
-    //     if (Input.GetKeyDown(KeyCode.Space)) {
-    //         TakeDamge(1);
-    //     }
-    // }
+    
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _playerData.CurrentHealth -= 1;
+        }
+    }
 }

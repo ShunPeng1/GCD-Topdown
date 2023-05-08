@@ -5,18 +5,22 @@ using UnityEngine.UI;
 
 public class PlayerHealthBar : MonoBehaviour
 {
-    [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private PlayerSystem playerSystem;
     [SerializeField] private Image totalHealthBar;
     [SerializeField] private Image currentHealthBar;
     // Start is called before the first frame update
+    
+    private PlayerDataSO _playerData;
+    
     void Start()
     {
-        totalHealthBar.fillAmount = playerHealth.currentHealth / 10;
+        _playerData = playerSystem.PlayerData;
+        totalHealthBar.fillAmount = _playerData.CurrentHealth / _playerData.MaxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentHealthBar.fillAmount = playerHealth.currentHealth / 10;
+        currentHealthBar.fillAmount = _playerData.CurrentHealth / _playerData.MaxHealth;
     }
 }

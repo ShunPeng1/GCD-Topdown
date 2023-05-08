@@ -4,20 +4,40 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player Movement Data")] //Create a new playerData object by right clicking in the Project Menu then Create/Player/Player Data and drag onto the player
 public class PlayerDataSO : ScriptableObject
 {
-    [Header("Health")] public float MaxHealth = 10;
-    public float CurrentHealth
+    [Header("Health")]
+    public float InitHealth = 5;
+    public bool IsHurtable = true;
+    
+    private float _maxHealth;
+    public float MaxHealth
     {
-        get => CurrentHealth;
+        get => _maxHealth;
         set
         {
-            CurrentHealth = Mathf.Clamp(value, 0, MaxHealth);
-            OnChangeCurrentHealth.Invoke(CurrentHealth);
+            OnChangeMaxHealth?.Invoke(value, value - _maxHealth);
+            _maxHealth = value;
         }
     }
-    
-    public Action<float> OnChangeCurrentHealth;
-    public Action<float> OnChangeMaxHealth;
+        
+    private float _currentHealth;
+    public float CurrentHealth
+    {
+        get => _currentHealth;
+        set
+        {
+            if (!IsHurtable) return;
+            
+            OnChangeCurrentHealth?.Invoke(value, value - _currentHealth);
+            _currentHealth = Mathf.Clamp(value, 0, _maxHealth);
+        }
+    }
+    public Action<float, float> OnChangeCurrentHealth;
+    public Action<float, float> OnChangeMaxHealth;
 
+    [Header("Invincibility")] 
+    public float InvincibilityTime = 2f;
+    
+    
     
     [Header("Run")]
     public float RunMaxSpeed; //Target speed we want the player to reach.
@@ -29,8 +49,6 @@ public class PlayerDataSO : ScriptableObject
     [Range(0.01f, 1)] public float AccelInAir; //Multipliers applied to acceleration rate when airborne.
     [Range(0.01f, 1)] public float DecelerateInAir;
     public bool DoConserveMomentum;
-    [SerializeField] private float _currentHealth;
-
 
     private void OnValidate()
     {

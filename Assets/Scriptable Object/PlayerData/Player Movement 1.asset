@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e34e833c2de00469bd736d5237497f, type: 3}
   m_Name: Player Movement 1
   m_EditorClassIdentifier: 
+  InitHealth: 5
+  IsHurtable: 1
+  InvincibilityTime: 2
   RunMaxSpeed: 6
   RunAcceleration: 3
   RunAccelAmount: 25
