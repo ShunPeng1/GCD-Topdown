@@ -1,8 +1,24 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Player Movement Data")] //Create a new playerData object by right clicking in the Project Menu then Create/Player/Player Data and drag onto the player
-public class PlayerMovementData : ScriptableObject
+public class PlayerDataSO : ScriptableObject
 {
+    [Header("Health")] public float MaxHealth = 10;
+    public float CurrentHealth
+    {
+        get => CurrentHealth;
+        set
+        {
+            CurrentHealth = Mathf.Clamp(value, 0, MaxHealth);
+            OnChangeCurrentHealth.Invoke(CurrentHealth);
+        }
+    }
+    
+    public Action<float> OnChangeCurrentHealth;
+    public Action<float> OnChangeMaxHealth;
+
+    
     [Header("Run")]
     public float RunMaxSpeed; //Target speed we want the player to reach.
     public float RunAcceleration; //Time (approx.) time we want it to take for the player to accelerate from 0 to the runMaxSpeed.
@@ -13,6 +29,7 @@ public class PlayerMovementData : ScriptableObject
     [Range(0.01f, 1)] public float AccelInAir; //Multipliers applied to acceleration rate when airborne.
     [Range(0.01f, 1)] public float DecelerateInAir;
     public bool DoConserveMomentum;
+    [SerializeField] private float _currentHealth;
 
 
     private void OnValidate()

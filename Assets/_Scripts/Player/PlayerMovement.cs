@@ -9,11 +9,13 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerSystem), typeof(Rigidbody2D))]
 public class PlayerMovement : GridXYGameObject
 {
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manuly change all references in this script
-	public PlayerMovementData Data;
+	private PlayerSystem _playerSystem; 
+	private PlayerDataSO _movementData;
 
 	#region COMPONENTS
 
@@ -34,9 +36,11 @@ public class PlayerMovement : GridXYGameObject
 	#endregion
 	
     private void Awake()
-	{
+    {
+	    _playerSystem = GetComponent<PlayerSystem>();
 		_rigidbody2D = GetComponent<Rigidbody2D>();
-	}
+		_movementData = _playerSystem.PlayerData;
+    }
 
     protected override void Start()
 	{
@@ -68,15 +72,15 @@ public class PlayerMovement : GridXYGameObject
     private void Run()
 	{
 		//Calculate the direction we want to move in and our desired velocity
-		float targetSpeedX = _moveInput.x * Data.RunMaxSpeed;
-		float targetSpeedY = _moveInput.y * Data.RunMaxSpeed; // Calculate the target speed in the Y direction
+		float targetSpeedX = _moveInput.x * _movementData.RunMaxSpeed;
+		float targetSpeedY = _moveInput.y * _movementData.RunMaxSpeed; // Calculate the target speed in the Y direction
 
 		#region Calculate AccelRate
 		//Gets an acceleration value based on if we are accelerating (includes turning) 
 		//or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
 		
-		float accelRateX = Mathf.Abs(targetSpeedX) > 0.01f ? Data.RunAccelAmount : Data.RunDecelerateAmount;
-		float accelRateY = Mathf.Abs(targetSpeedY) > 0.01f ? Data.RunAccelAmount : Data.RunDecelerateAmount;
+		float accelRateX = Mathf.Abs(targetSpeedX) > 0.01f ? _movementData.RunAccelAmount : _movementData.RunDecelerateAmount;
+		float accelRateY = Mathf.Abs(targetSpeedY) > 0.01f ? _movementData.RunAccelAmount : _movementData.RunDecelerateAmount;
 
 		#endregion
 		
@@ -85,12 +89,12 @@ public class PlayerMovement : GridXYGameObject
 		//Prevent any deceleration from happening, or in other words conserve are current momentum
 		//You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
 		
-		if (Data.DoConserveMomentum && Mathf.Abs(_rigidbody2D.velocity.x) > Mathf.Abs(targetSpeedX) && Mathf.Sign(_rigidbody2D.velocity.x) == Mathf.Sign(targetSpeedX) && Mathf.Abs(targetSpeedX) > 0.01f)
+		if (_movementData.DoConserveMomentum && Mathf.Abs(_rigidbody2D.velocity.x) > Mathf.Abs(targetSpeedX) && Mathf.Sign(_rigidbody2D.velocity.x) == Mathf.Sign(targetSpeedX) && Mathf.Abs(targetSpeedX) > 0.01f)
 		{
 			accelRateX = 0;
 		}
 
-		if (Data.DoConserveMomentum && Mathf.Abs(_rigidbody2D.velocity.y) > Mathf.Abs(targetSpeedY) && Mathf.Sign(_rigidbody2D.velocity.y) == Mathf.Sign(targetSpeedY) && Mathf.Abs(targetSpeedY) > 0.01f)
+		if (_movementData.DoConserveMomentum && Mathf.Abs(_rigidbody2D.velocity.y) > Mathf.Abs(targetSpeedY) && Mathf.Sign(_rigidbody2D.velocity.y) == Mathf.Sign(targetSpeedY) && Mathf.Abs(targetSpeedY) > 0.01f)
 		{
 			accelRateX = 0; // Add support for conserving momentum in the Y direction as well
 		}
