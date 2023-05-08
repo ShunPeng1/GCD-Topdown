@@ -44,11 +44,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void ChangeHealth(float changeValue)
-    {
-        
-    }
-    
     private IEnumerator Invulnerability() {
         Physics2D.IgnoreLayerCollision(0, 5, true);
         for (int i = 0; i < flashesAmount; i++) {
