@@ -42,19 +42,15 @@ public class EnvironmentBehaviour : GridXYGameObject
             TakeDamage(1);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
-
     private Collider2D TargetDetection() {
         return Physics2D.OverlapCircle(transform.position, _detectionRange, _playerLayerMask);
     }
 
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(transform.position, _detectionRange);
+    }
+
+    private void OnDestroy() {
+        GetComponent<EnvironmentLoot>().InstantiateCollectibles(transform.position);
     }
 }

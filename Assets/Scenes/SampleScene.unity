@@ -428,6 +428,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4525679024359418498, guid: d013459841e36fc449a13798996835fc, type: 3}
+      propertyPath: _playerLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 4525679024359418500, guid: d013459841e36fc449a13798996835fc, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -482,6 +486,26 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d013459841e36fc449a13798996835fc, type: 3}
+--- !u!1 &1003231793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4525679024359418502, guid: d013459841e36fc449a13798996835fc, type: 3}
+  m_PrefabInstance: {fileID: 1003231792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1003231794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003231793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6865792feb750014ab7cecb7bea54571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collectiblePrefab: {fileID: 7817704430541481961, guid: 4430c4ac4617bf348b71d67d19c9910f, type: 3}
+  _collectible: {fileID: 11400000, guid: 92ffc91b11ca15a438b096ba74d9767a, type: 2}
+  _dropForce: 300
 --- !u!1 &1653547473
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +699,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2241255813806217419, guid: d6a20690562847745a4304a45ff8f909, type: 3}
+      propertyPath: _magnetForce
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241255813806217419, guid: d6a20690562847745a4304a45ff8f909, type: 3}
+      propertyPath: _collectRange
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241255813806217419, guid: d6a20690562847745a4304a45ff8f909, type: 3}
+      propertyPath: _collectibleLayerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 2787893778839836994, guid: d6a20690562847745a4304a45ff8f909, type: 3}
       propertyPath: m_Camera
       value: 
@@ -734,4 +770,5 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 677620736929652056, guid: d6a20690562847745a4304a45ff8f909, type: 3}
     - {fileID: 2787893778839836994, guid: d6a20690562847745a4304a45ff8f909, type: 3}
+    - {fileID: 1169126430618275428, guid: d6a20690562847745a4304a45ff8f909, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d6a20690562847745a4304a45ff8f909, type: 3}

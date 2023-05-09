@@ -55,7 +55,7 @@ public class PlayerMovement : GridXYGameObject
 	    _moveInput = _moveInputAction.action.ReadValue<Vector2>();
 	    _moveInput.x = _moveInput.x != 0 ? 1 * Mathf.Sign(_moveInput.x) : 0;
 	    _moveInput.y = _moveInput.y != 0 ? 1 * Mathf.Sign(_moveInput.y) : 0;
-	    Debug.Log("MOVE "+ _moveInput);
+	    // Debug.Log("MOVE "+ _moveInput);
 	    if (_moveInput.x != 0)
 		    CheckDirectionToFace(_moveInput.x > 0);
 
