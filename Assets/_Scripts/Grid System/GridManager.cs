@@ -27,6 +27,7 @@ public class GridManager : SingletonMonoBehaviour<GridManager>
             for (int y = 0; y < Height; y++) 
             {
                 _tilemap.SetTile(Vector3Int.FloorToInt(WorldGrid.GetWorldPosition(x,y)), _tile);
+                
             }
         }
     }
