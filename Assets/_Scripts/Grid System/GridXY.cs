@@ -36,8 +36,6 @@ public class GridXY<TCell> where TCell : GridXYCell
                 _gridCells[x, y] = (initGridCell != null ? initGridCell(this, x, y) : new GridXYCell(this as GridXY<GridXYCell> ,x,y)) as TCell;
                 Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.red, 100f);
                 Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.red, 100f);
-                Debug.Log("CREATE "+ x + " " + y);
-
             }
         }
     }
