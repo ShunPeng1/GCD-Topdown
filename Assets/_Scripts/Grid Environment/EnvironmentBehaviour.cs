@@ -24,7 +24,7 @@ public class EnvironmentBehaviour : GridXYGameObject
         _currHitPoint = Mathf.Clamp(_currHitPoint - _value, 0, _maxHitPoint);
         _healthBarBehavior.SetHealth(_currHitPoint, _maxHitPoint);
         if (_currHitPoint <= 0) {
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -38,6 +38,7 @@ public class EnvironmentBehaviour : GridXYGameObject
     }
 
     private void OnMouseDown() {
+        Debug.Log("Nani");
         if (TargetDetection() != null) {
             TakeDamage(1);
         }
@@ -49,8 +50,8 @@ public class EnvironmentBehaviour : GridXYGameObject
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(transform.position, _detectionRange);
     }
-
-    private void OnDestroy() {
+    private void Die() {
         GetComponent<EnvironmentLoot>().InstantiateCollectibles(transform.position);
+        Destroy(gameObject);
     }
 }
