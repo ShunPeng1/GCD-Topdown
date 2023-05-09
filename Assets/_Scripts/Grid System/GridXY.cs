@@ -95,6 +95,25 @@ public class GridXY<TCell> where TCell : GridXYCell
         return default(TCell);
     }
 
+    
+    
+    public void SetCellObstacle(int xIndex, int yIndex, bool isObstacle = false)
+    {
+        if (xIndex < _width && xIndex >= 0 && yIndex < _height && yIndex >= 0)
+        {
+            _gridCells[xIndex, yIndex].IsObstacle = isObstacle;
+        }
+    }
+    
+    public bool GetCellObstacle(int xIndex, int yIndex)
+    {
+        if (xIndex < _width && xIndex >= 0 && yIndex < _height && yIndex >= 0)
+        {
+            return _gridCells[xIndex, yIndex].IsObstacle;
+        }
+        return true;
+    }
+
 
     public void SetGridGameObject(GridXYGameObject gameObject, int xIndex, int yIndex, bool isObstacle = false)
     {

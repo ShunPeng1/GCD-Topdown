@@ -11,7 +11,7 @@ public class GridXYCell
     private int _a;
     public List<GridXYCell> AdjacentItems { get; private set; } = new();
     public GridXYGameObject GridGameObject { get; private set; }
-    public bool IsObstacle { get; private set; }
+    public bool IsObstacle { get; set; }
 
     [Header("A Star Pathfinding")] 
     public GridXYCell ParentXYCell = null; 

@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Terrain Layer
+    uniqueID: 1793169637
+    locked: 0
+  - name: Collision Layer
+    uniqueID: 3866648345
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Collectile
+    uniqueID: 1727698913
     locked: 0

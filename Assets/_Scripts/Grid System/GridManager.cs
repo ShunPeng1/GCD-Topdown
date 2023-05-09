@@ -13,10 +13,8 @@ public class GridManager : SingletonMonoBehaviour<GridManager>
     [SerializeField] private int Width = 20, Height = 20;
     [SerializeField] private float CellWidthSize = 1f, CellHeightSize = 1f;
 
-
-    [Header("Tile map")] 
-    [SerializeField] private TileBase _tile;
-    [SerializeField] Tilemap _tilemap;
+    [Header("Tile map")]
+    [SerializeField] Tilemap _collisionTilemap;
     private void Awake()
     {
         WorldGrid = new GridXY<GridXYCell>(Width, Height, CellWidthSize,CellHeightSize, transform.position);
@@ -26,8 +24,12 @@ public class GridManager : SingletonMonoBehaviour<GridManager>
         {
             for (int y = 0; y < Height; y++) 
             {
-                _tilemap.SetTile(Vector3Int.FloorToInt(WorldGrid.GetWorldPosition(x,y)), _tile);
-                
+                TileBase tileBase =  _collisionTilemap.GetTile(Vector3Int.FloorToInt(WorldGrid.GetWorldPosition(x,y)));
+                if (tileBase != null)
+                {
+                    WorldGrid.SetCellObstacle(x,y, true);
+                    Debug.Log("Cell" +x+" "+y+" have collider");
+                }
             }
         }
     }
