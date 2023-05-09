@@ -19,15 +19,15 @@ public class PlayerHandleCollectible : MonoBehaviour
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
-        HandleCollectible collectible = other.GetComponent<HandleCollectible>();
+        Collectible collectible = other.GetComponent<Collectible>();
         if (collectible != null) {
             collectible.Collect();
-            Collected(collectible.CollectibleType);
+            Collected(collectible.CollectibleSoType);
         }
     }
 
-    private void Collected(Collectible collectible) {
-        switch (collectible.CollectibleType) {
+    private void Collected(CollectibleSO collectibleSo) {
+        switch (collectibleSo.CollectibleType) {
             case CollectibleEnum.Wood:
                 _woodAmount += 1;
                 break;

@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 4525679024359418503}
   - component: {fileID: 4525679024359418501}
   - component: {fileID: 4525679024359418498}
+  - component: {fileID: 1003231794}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -351,6 +352,21 @@ MonoBehaviour:
   _healthBarBehavior: {fileID: 4525679024536733752}
   _detectionRange: 1
   _outline: {fileID: 100022784}
+--- !u!114 &1003231794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525679024359418502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6865792feb750014ab7cecb7bea54571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collectiblePrefab: {fileID: 7817704430541481961, guid: 4430c4ac4617bf348b71d67d19c9910f, type: 3}
+  CollectibleSo: {fileID: 11400000, guid: 92ffc91b11ca15a438b096ba74d9767a, type: 2}
+  _dropForce: 300
 --- !u!1 &4525679024536733759
 GameObject:
   m_ObjectHideFlags: 0
