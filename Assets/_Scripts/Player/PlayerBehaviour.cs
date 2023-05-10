@@ -11,7 +11,7 @@ public enum PlayerStateEnum
     Dying
 }
 
-public class PlayerSystem : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
     public PlayerDataSO PlayerData;
     public PlayerStateEnum PlayerState;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerSystem))]
+[RequireComponent(typeof(PlayerBehaviour))]
 public class PlayerHealth : MonoBehaviour
 {
     
@@ -10,13 +10,13 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int flashesAmount;
 
-    private PlayerSystem _playerSystem;
+    private PlayerBehaviour _playerBehaviour;
     private PlayerDataSO _playerData;
     private SpriteRenderer _renderer;
     private void Awake()
     {
-        _playerSystem = GetComponent<PlayerSystem>();
-        _playerData = _playerSystem.PlayerData;
+        _playerBehaviour = GetComponent<PlayerBehaviour>();
+        _playerData = _playerBehaviour.PlayerData;
         
         _playerData.MaxHealth = _playerData.InitHealth;
         _playerData.CurrentHealth = _playerData.InitHealth;

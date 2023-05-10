@@ -10,7 +10,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerSystem), typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerBehaviour), typeof(Rigidbody2D))]
 public class PlayerMovement : GridXYGameObject
 {
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
@@ -18,7 +18,7 @@ public class PlayerMovement : GridXYGameObject
 	
 	
 	#region COMPONENTS
-	private PlayerSystem _playerSystem; 
+	private PlayerBehaviour _playerBehaviour; 
 	private PlayerDataSO _movementData;
 	private Rigidbody2D _rigidbody2D { get; set; }
 	//Script to handle all player animations, all references can be safely removed if you're importing into your own project.
@@ -40,9 +40,9 @@ public class PlayerMovement : GridXYGameObject
 	
     private void Awake()
     {
-	    _playerSystem = GetComponent<PlayerSystem>();
+	    _playerBehaviour = GetComponent<PlayerBehaviour>();
 		_rigidbody2D = GetComponent<Rigidbody2D>();
-		_movementData = _playerSystem.PlayerData;
+		_movementData = _playerBehaviour.PlayerData;
     }
 
     protected override void Start()

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealthBar : MonoBehaviour
 {
-    [SerializeField] private PlayerSystem playerSystem;
+    [SerializeField] private PlayerBehaviour PlayerBehaviour;
     [SerializeField] private Image totalHealthBar;
     [SerializeField] private Image currentHealthBar;
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class PlayerHealthBar : MonoBehaviour
     
     void Start()
     {
-        _playerData = playerSystem.PlayerData;
+        _playerData = PlayerBehaviour.PlayerData;
         totalHealthBar.fillAmount = _playerData.CurrentHealth / _playerData.MaxHealth;
     }
 
