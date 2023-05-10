@@ -40,7 +40,7 @@ public class PlayerMovement : GridXYGameObject
 	
     private void Awake()
     {
-	    _playerBehaviour = GetComponent<PlayerBehaviour>();
+		_playerBehaviour = GetComponent<PlayerBehaviour>();
 		_rigidbody2D = GetComponent<Rigidbody2D>();
 		_movementData = _playerBehaviour.PlayerData;
     }

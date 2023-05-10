@@ -24,5 +24,9 @@ public class PlayerAttack : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePos);
     }
 
+    private void OnFire() {
+        
+    }
+
     
 }
