@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Player Movement Data")] //Create a new playerData object by right clicking in the Project Menu then Create/Player/Player Data and drag onto the player
+[CreateAssetMenu(menuName = "Player Data")] //Create a new playerData object by right clicking in the Project Menu then Create/Player/Player Data and drag onto the player
 public class PlayerDataSO : ScriptableObject
 {
     [Header("Health")]

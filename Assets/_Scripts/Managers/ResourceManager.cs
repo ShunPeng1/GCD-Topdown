@@ -5,8 +5,8 @@ using UnityUtilities;
 
 public class ResourceManager : SingletonMonoBehaviour<ResourceManager>
 {
-    //[Header("Loot")]
-    
-    
-    
+    [Header("Environment UI")] 
+    public GameObject EnvironmentOutline;
+
+
 }

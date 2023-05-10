@@ -230,7 +230,9 @@ GameObject:
   - component: {fileID: 4525679024359418503}
   - component: {fileID: 4525679024359418501}
   - component: {fileID: 4525679024359418498}
+  - component: {fileID: 2057035852317387054}
   - component: {fileID: 1003231794}
+  - component: {fileID: 9113494959482745698}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -306,7 +308,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &4525679024359418501
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -345,13 +347,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc91e2c3a68d2d479da0d0a7cb2239f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GridSize: {x: 1, y: 1}
+  IsObstacle: 1
+--- !u!114 &2057035852317387054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525679024359418502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab3da67a90072a4f9ee348367115c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _maxHitPoint: 5
-  _playerLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _healthBarBehavior: {fileID: 4525679024536733752}
-  _detectionRange: 1
-  _outline: {fileID: 100022784}
+  _healthBarCanvas: {fileID: 4525679024536733752}
 --- !u!114 &1003231794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +378,19 @@ MonoBehaviour:
   _collectiblePrefab: {fileID: 7817704430541481961, guid: 4430c4ac4617bf348b71d67d19c9910f, type: 3}
   CollectibleSo: {fileID: 11400000, guid: 92ffc91b11ca15a438b096ba74d9767a, type: 2}
   _dropForce: 300
+--- !u!114 &9113494959482745698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525679024359418502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d5f031feb821f45825f52fc684b932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outline: {fileID: 100022784}
 --- !u!1 &4525679024536733759
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +405,7 @@ GameObject:
   - component: {fileID: 4525679024536733757}
   - component: {fileID: 4525679024536733752}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Health Bar Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

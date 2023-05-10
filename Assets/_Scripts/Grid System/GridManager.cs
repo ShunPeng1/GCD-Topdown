@@ -19,7 +19,7 @@ public class GridManager : SingletonMonoBehaviour<GridManager>
     {
         WorldGrid = new GridXY<GridXYCell>(Width, Height, CellWidthSize,CellHeightSize, transform.position);
         
-        //Testing
+        // Add Collider from static Tilemap
         for (int x = 0; x < Width; x++)
         {
             for (int y = 0; y < Height; y++) 

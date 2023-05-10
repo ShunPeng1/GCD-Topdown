@@ -6,8 +6,8 @@ public class GridXYCell
 {
     [Header("Base")]
     private readonly GridXY<GridXYCell> _gridXY;
-    private readonly int _xIndex;
-    private readonly int _yIndex;
+    public int XIndex;
+    public int YIndex;
     private int _a;
     public List<GridXYCell> AdjacentItems { get; private set; } = new();
     public GridXYGameObject GridGameObject { get; private set; }
@@ -23,8 +23,8 @@ public class GridXYCell
     public GridXYCell(GridXY<GridXYCell> grid, int x, int y, bool isObstacle = false, GridXYGameObject gridGameObject = null)
     {
         _gridXY = grid;
-        _xIndex = x;
-        _yIndex = y;
+        XIndex = x;
+        YIndex = y;
         IsObstacle = isObstacle;
         GridGameObject = gridGameObject;
     }
@@ -33,10 +33,10 @@ public class GridXYCell
     {
         GridXYCell[] adjacentRawItems =
         {
-            _gridXY.GetCell(_xIndex + 1, _yIndex),
-            _gridXY.GetCell(_xIndex - 1, _yIndex),
-            _gridXY.GetCell(_xIndex, _yIndex + 1),
-            _gridXY.GetCell(_xIndex, _yIndex - 1)
+            _gridXY.GetCell(XIndex + 1, YIndex),
+            _gridXY.GetCell(XIndex - 1, YIndex),
+            _gridXY.GetCell(XIndex, YIndex + 1),
+            _gridXY.GetCell(XIndex, YIndex - 1)
         };
 
         foreach (var rawItem in adjacentRawItems)
@@ -57,11 +57,11 @@ public class GridXYCell
     
     public static (int xDiff, int yDiff) GetIndexDifference(GridXYCell first, GridXYCell second)
     {
-        return (second._xIndex - first._xIndex , second._yIndex-first._yIndex);
+        return (second.XIndex - first.XIndex , second.YIndex-first.YIndex);
     }
     
     public static (int xDiff, int yDiff) GetIndexDifferenceAbsolute(GridXYCell first, GridXYCell second)
     {
-        return (Mathf.Abs(second._xIndex - first._xIndex), Mathf.Abs(second._yIndex - first._yIndex));
+        return (Mathf.Abs(second.XIndex - first.XIndex), Mathf.Abs(second.YIndex - first.YIndex));
     }
 }

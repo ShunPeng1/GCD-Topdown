@@ -667,6 +667,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
+    Android: SHAPES_URP
     Standalone: SHAPES_URP
     WebGL: SHAPES_URP
   additionalCompilerArguments: {}
