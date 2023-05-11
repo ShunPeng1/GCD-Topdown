@@ -17,6 +17,7 @@ public class HealthBarCanvas : MonoBehaviour
     void Start()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
+        gameObject.SetActive(true);
         _heathBar.value = 1;
         _heathBar.maxValue = 1;
         _canvasGroup.alpha = 0;

@@ -9,4 +9,7 @@ public class ResourceManager : SingletonMonoBehaviour<ResourceManager>
     public GameObject EnvironmentOutline;
 
 
+    [Header("Building")] 
+    public EnvironmentBehaviour BombTower;
+
 }
