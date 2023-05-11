@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e34e833c2de00469bd736d5237497f, type: 3}
   m_Name: Player Data 1
   m_EditorClassIdentifier: 
-  InitHealth: 5
+  InitHealth: 6
   IsHurtable: 1
   InvincibilityTime: 2
   RunMaxSpeed: 6
-  RunAcceleration: 3
-  RunAccelAmount: 25
+  RunAcceleration: 2
+  RunAccelAmount: 16.666666
   RunDeceleration: 2
   RunDecelerateAmount: 16.666666
   AccelInAir: 0
   DecelerateInAir: 0
-  DoConserveMomentum: 1
+  DoConserveMomentum: 0
