@@ -17,7 +17,7 @@ public class EnvironmentHealth : MonoBehaviour
         _environmentBehaviour = GetComponent<EnvironmentBehaviour>();
         _currHitPoint = _maxHitPoint;
 
-        _healthBarCanvas.SetHealth(_currHitPoint, _maxHitPoint);
+        _healthBarCanvas.SetHealth(_currHitPoint, _maxHitPoint, false);
     }
 
     private void Update()

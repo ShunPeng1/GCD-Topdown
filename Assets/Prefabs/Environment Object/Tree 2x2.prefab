@@ -315,11 +315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8914980122301945505, guid: 40bb0b4a7d9e71545942c37e53170102, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8914980122301945505, guid: 40bb0b4a7d9e71545942c37e53170102, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8914980122301945505, guid: 40bb0b4a7d9e71545942c37e53170102, type: 3}
       propertyPath: m_LocalPosition.x
@@ -351,11 +351,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8914980122301945505, guid: 40bb0b4a7d9e71545942c37e53170102, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1
+      value: 1.158
       objectReference: {fileID: 0}
     - target: {fileID: 8914980122301945505, guid: 40bb0b4a7d9e71545942c37e53170102, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1
+      value: 1.223
       objectReference: {fileID: 0}
     - target: {fileID: 8914980122301945505, guid: 40bb0b4a7d9e71545942c37e53170102, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -372,6 +372,14 @@ PrefabInstance:
     - target: {fileID: 8914980122301945506, guid: 40bb0b4a7d9e71545942c37e53170102, type: 3}
       propertyPath: m_Name
       value: Health Bar Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914980122301945511, guid: 40bb0b4a7d9e71545942c37e53170102, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914980123704273268, guid: 40bb0b4a7d9e71545942c37e53170102, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8914980123704273268, guid: 40bb0b4a7d9e71545942c37e53170102, type: 3}
       propertyPath: m_AnchorMax.y
