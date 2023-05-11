@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerBehaviour _playerBehaviour;
     private PlayerDataSO _playerData;
     private SpriteRenderer _renderer;
+    private Animator _animator;
     private void Awake()
     {
         _playerBehaviour = GetComponent<PlayerBehaviour>();
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
         _playerData.OnChangeCurrentHealth += ChangeHealthEvent;
 
         _renderer = GetComponent<SpriteRenderer>(); 
+        _animator = GetComponent<Animator>();
     }
 
     private void ChangeHealthEvent(float newHealth, float changeValue) {
@@ -30,10 +32,11 @@ public class PlayerHealth : MonoBehaviour
         if(changeValue < 0) // Lose Health
         {
             if (newHealth > 0) {
-                // anim.SetTrigger("Hurt");
+                _animator.SetTrigger("Hurt");
                 StartCoroutine(Invulnerability());
             }
             else {
+                _animator.SetTrigger("Dead");
                 Debug.Log("Death");
             }
             

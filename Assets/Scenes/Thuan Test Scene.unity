@@ -6156,6 +6156,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -68249400074897036, guid: d6a20690562847745a4304a45ff8f909, type: 3}
+      propertyPath: _playerAttack
+      value: 
+      objectReference: {fileID: -7029247152813578177, guid: 62c90a87665036642ae9be1c39c125ed, type: 3}
+    - target: {fileID: -68249400074897036, guid: d6a20690562847745a4304a45ff8f909, type: 3}
+      propertyPath: _attackCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -68249400074897036, guid: d6a20690562847745a4304a45ff8f909, type: 3}
+      propertyPath: _playerAttackInputAction
+      value: 
+      objectReference: {fileID: -4184400663388678799, guid: 62c90a87665036642ae9be1c39c125ed, type: 3}
     - target: {fileID: 2241255813806217419, guid: d6a20690562847745a4304a45ff8f909, type: 3}
       propertyPath: _invPanel
       value: 

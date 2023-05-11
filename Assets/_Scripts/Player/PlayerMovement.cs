@@ -28,11 +28,15 @@ public class PlayerMovement : GridXYGameObject
 	//Variables control the various actions the player can perform at any time.
 	//These are fields which can are public allowing for other sctipts to read them
 	//but can only be privately written to.
-	private bool _isFacingRight { get; set; }
+	// private bool _isFacingRight { get; set; }
 	
 	#endregion
 
 	#region INPUT PARAMETERS
+
+	#region ANIMATION CONTROL
+	private Animator _animator;
+	#endregion
 
 	[SerializeField] private InputActionReference _moveInputAction;
 	private Vector2 _moveInput;
@@ -44,21 +48,32 @@ public class PlayerMovement : GridXYGameObject
 		_playerBehaviour = GetComponent<PlayerBehaviour>();
 		_rigidbody2D = GetComponent<Rigidbody2D>();
 		_movementData = _playerBehaviour.PlayerData;
+		_animator = GetComponent<Animator>();
     }
 
     protected override void Start()
 	{
 		base.Start();
-		_isFacingRight = true;
+		// _isFacingRight = true;
 	}
     
     void HandleInput() {
 	    _moveInputNormalize = _moveInputAction.action.ReadValue<Vector2>();
 	    _moveInput.x = _moveInputNormalize.x != 0 ? Mathf.Sign(_moveInputNormalize.x) : 0;
 	    _moveInput.y = _moveInputNormalize.y != 0 ? Mathf.Sign(_moveInputNormalize.y) : 0;
+		
+		if (_moveInputNormalize == Vector2.zero) {
+			_animator.SetBool("isMoving", false);
+		} else {
+			_animator.SetBool("isMoving", true);
+			_animator.SetFloat("xDir", _moveInput.x);
+			_animator.SetFloat("yDir", _moveInput.y);
+		}
+		
+		
 	    // Debug.Log("MOVE "+ _moveInput);
-	    if (_moveInputNormalize.x != 0)
-		    CheckDirectionToFace(_moveInputNormalize.x > 0);
+	    // if (_moveInputNormalize.x != 0)
+		//     CheckDirectionToFace(_moveInputNormalize.x > 0);
 
     }
 
@@ -154,24 +169,24 @@ public class PlayerMovement : GridXYGameObject
     }
 
     
-	private void Turn()
-	{
-		//stores scale and flips the player along the x axis, 
-		Vector3 scale = transform.localScale; 
-		scale.x *= -1;
-		transform.localScale = scale;
+	// private void Turn()
+	// {
+	// 	//stores scale and flips the player along the x axis, 
+	// 	Vector3 scale = transform.localScale; 
+	// 	scale.x *= -1;
+	// 	transform.localScale = scale;
 
-		_isFacingRight = !_isFacingRight;
-	}
+	// 	_isFacingRight = !_isFacingRight;
+	// }
     #endregion
 
 
     #region CHECK METHODS
-    public void CheckDirectionToFace(bool isMovingRight)
-	{
-		if (isMovingRight != _isFacingRight)
-			Turn();
-	}
+    // public void CheckDirectionToFace(bool isMovingRight)
+	// {
+	// 	if (isMovingRight != _isFacingRight)
+	// 		Turn();
+	// }
     #endregion
 }
 
