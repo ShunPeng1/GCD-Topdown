@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264e243addb874049bdf3a31122b4b32, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  CollectibleSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  CollectibleIcon: {fileID: -1844654512, guid: 4cc5a0bc4e821d94fb8db72d21208f6e, type: 3}
   CollectibleType: 1
-  MaxAmount: 5
+  CollectiblePrefab: {fileID: 6421742605136644335, guid: 21a0efd8b4548734b9b8e36397e10286, type: 3}
   MinAmount: 2
+  MaxAmount: 5

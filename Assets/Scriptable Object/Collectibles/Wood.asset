@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264e243addb874049bdf3a31122b4b32, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  CollectibleIcon: {fileID: 0}
+  CollectibleIcon: {fileID: 2132070940, guid: 7761facd18adb2d4a8033e047e6ec949, type: 3}
   CollectibleType: 0
-  CollectiblePrefab: {fileID: 0}
+  CollectiblePrefab: {fileID: 6421742605136644335, guid: 82622d13e0c83ea48a8d5c6b69afd7d7, type: 3}
   MinAmount: 2
   MaxAmount: 5
