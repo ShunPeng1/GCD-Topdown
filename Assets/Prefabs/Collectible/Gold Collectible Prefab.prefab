@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7817704430541481965}
   - component: {fileID: 6421742605136644335}
   m_Layer: 7
-  m_Name: CollectiblePrefab
+  m_Name: Gold Collectible Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0da90ee166775649b3a658f03fe9c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollectibleSoType: {fileID: 0}
+  CollectibleSo: {fileID: 11400000, guid: a9c3f31dd1bbb504ca2c4595d62ad002, type: 2}

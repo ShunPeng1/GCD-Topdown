@@ -158,8 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6865792feb750014ab7cecb7bea54571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collectiblePrefab: {fileID: 7817704430541481961, guid: 4430c4ac4617bf348b71d67d19c9910f, type: 3}
-  CollectibleSo: {fileID: 11400000, guid: 92ffc91b11ca15a438b096ba74d9767a, type: 2}
+  CollectibleSo: {fileID: 11400000, guid: 9b2f89813262c794ab0751dc7598abae, type: 2}
   _dropForce: 2000
 --- !u!114 &6540003857969131834
 MonoBehaviour:

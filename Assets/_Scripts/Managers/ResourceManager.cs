@@ -10,6 +10,8 @@ public class ResourceManager : SingletonMonoBehaviour<ResourceManager>
 
 
     [Header("Building")] 
-    public EnvironmentBehaviour BombTower;
+    public BuildingBehaviour BombTower1;
+    public BuildingBehaviour BombTower2;
+    public BuildingBehaviour BombTower3;
 
 }
