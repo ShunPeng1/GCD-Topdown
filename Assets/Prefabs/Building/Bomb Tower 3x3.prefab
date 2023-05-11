@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 899351573957828401}
   - component: {fileID: 899351573957828402}
   - component: {fileID: 899351573957828400}
-  - component: {fileID: 899351573957828407}
+  - component: {fileID: -7765770323916663680}
   - component: {fileID: 3330795999207496859}
   - component: {fileID: 3653917270056169351}
   - component: {fileID: 5534063044731651799}
@@ -117,7 +117,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
---- !u!114 &899351573957828407
+--- !u!114 &-7765770323916663680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,11 +126,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 899351573957828403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc91e2c3a68d2d479da0d0a7cb2239f, type: 3}
+  m_Script: {fileID: 11500000, guid: 91a62872975163e4dab70ae4ccda1f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startInsertGameObjectToGridCell: 0
-  GridSize: {x: 3, y: 3}
+  _startInsertGameObjectToGridCell: 1
+  GridSize: {x: 1, y: 1}
   IsObstacle: 1
 --- !u!114 &3330795999207496859
 MonoBehaviour:
@@ -158,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6865792feb750014ab7cecb7bea54571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collectiblePrefab: {fileID: 7817704430541481961, guid: 4430c4ac4617bf348b71d67d19c9910f, type: 3}
   CollectibleSo: {fileID: 11400000, guid: 92ffc91b11ca15a438b096ba74d9767a, type: 2}
   _dropForce: 2000
 --- !u!114 &5534063044731651799

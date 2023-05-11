@@ -17,25 +17,13 @@ public class PlayerHandleCollectible : MonoBehaviour
     private int _bronzeAmount = 0;
     private int _silverAmount = 0;
     private int _goldAmount = 0;
-    [SerializeField] private TextMeshProUGUI _woodAmountText;
-    [SerializeField] private TextMeshProUGUI _stoneAmountText;
-    [SerializeField] private TextMeshProUGUI _ironAmountText;
-    [SerializeField] private TextMeshProUGUI _bronzeAmountText;
-    [SerializeField] private TextMeshProUGUI _silverAmountText;
-    [SerializeField] private TextMeshProUGUI _goldAmountText;
+    
     [SerializeField] private GameObject _invPanel;
     [SerializeField] private InputActionReference _openInvInputAction;
     private void Awake() {
         _openInvInputAction.action.performed += ctx => HandleInventory();
     }
-    private void Start() {
-        _woodAmountText.text = "x " + _woodAmount;
-        _stoneAmountText.text = "x " + _stoneAmount;
-        _ironAmountText.text = "x " + _ironAmount;
-        _bronzeAmountText.text = "x " + _bronzeAmount;
-        _silverAmountText.text = "x " + _silverAmount;
-        _goldAmountText.text = "x " + _goldAmount;
-    }
+    
     private void FixedUpdate() {
         PullCollectible();
     }

@@ -9,7 +9,8 @@ public class BuildingShop : MonoBehaviour
     [Serializable]
     class BuildingShopItem
     {
-        public BuildingBehaviour Building;
+        public BuildingShopItem BuildingItem;
+        public BuildingBehaviour BuildingBehaviour;
         public CollectibleEnum Type1;
         public int Cost1;
         public CollectibleEnum Type2;

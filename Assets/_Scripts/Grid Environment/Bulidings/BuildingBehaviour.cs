@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingBehaviour : GridXYGameObject
+public class BuildingBehaviour : EnvironmentBehaviour
 {
     
     

@@ -6,7 +6,7 @@ using UnityUtilities;
 
 public class DataManager : SingletonMonoBehaviour<DataManager>
 {
-    private Dictionary<CollectibleEnum, int> _collectibleValues;
+    private Dictionary<CollectibleEnum, int> _collectibleValues = new();
 
     private void Start()
     {
