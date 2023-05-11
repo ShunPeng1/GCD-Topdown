@@ -25,7 +25,7 @@ public class EnvironmentHealth : MonoBehaviour
             TakeDamage(1);
     }
 
-    private void TakeDamage(float _value) {
+    public void TakeDamage(float _value) {
         _currHitPoint = Mathf.Clamp(_currHitPoint - _value, 0, _maxHitPoint);
         _healthBarCanvas.SetHealth(_currHitPoint, _maxHitPoint);
         if (_currHitPoint <= 0) {
