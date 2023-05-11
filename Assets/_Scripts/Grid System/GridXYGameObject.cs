@@ -21,7 +21,7 @@ public class GridXYGameObject : MonoBehaviour
             for (int y = 0; y < GridSize.y; y++)
             {
                 GridXY.SetGridGameObject(this, LowerLeftPivotCell.XIndex + x, LowerLeftPivotCell.YIndex + y, IsObstacle);
-                Debug.Log(gameObject.name+" At " +(LowerLeftPivotCell.XIndex + x) + " " +(LowerLeftPivotCell.XIndex + y));
+                Debug.Log(gameObject.name+" At " +(LowerLeftPivotCell.XIndex + x) + " " +(LowerLeftPivotCell.YIndex + y));
             }
         }
     }

@@ -53,8 +53,8 @@ public class PlayerMovement : GridXYGameObject
     
     void HandleInput() {
 	    _moveInput = _moveInputAction.action.ReadValue<Vector2>();
-	    _moveInput.x = _moveInput.x != 0 ? 1 * Mathf.Sign(_moveInput.x) : 0;
-	    _moveInput.y = _moveInput.y != 0 ? 1 * Mathf.Sign(_moveInput.y) : 0;
+	    _moveInput.x = _moveInput.x != 0 ? Mathf.Sign(_moveInput.x) : 0;
+	    _moveInput.y = _moveInput.y != 0 ? Mathf.Sign(_moveInput.y) : 0;
 	    // Debug.Log("MOVE "+ _moveInput);
 	    if (_moveInput.x != 0)
 		    CheckDirectionToFace(_moveInput.x > 0);
@@ -66,12 +66,7 @@ public class PlayerMovement : GridXYGameObject
 		#region INPUT HANDLER
 
 		HandleInput();
-		//_moveInput.x = Input.GetAxisRaw("Horizontal");
-		//_moveInput.y = Input.GetAxisRaw("Vertical");
-
-		//if (_moveInput.x != 0)
-		//	CheckDirectionToFace(_moveInput.x > 0);
-
+		
 		#endregion
 
 		// Debug.Log("Player standing grid position "+ GridXY.GetXY(transform.position));
