@@ -36,6 +36,7 @@ public class PlayerMovement : GridXYGameObject
 
 	[SerializeField] private InputActionReference _moveInputAction;
 	private Vector2 _moveInput;
+	private Vector2 _moveInputNormalize;
 	#endregion
 	
     private void Awake()
@@ -52,12 +53,12 @@ public class PlayerMovement : GridXYGameObject
 	}
     
     void HandleInput() {
-	    _moveInput = _moveInputAction.action.ReadValue<Vector2>();
-	    _moveInput.x = _moveInput.x != 0 ? Mathf.Sign(_moveInput.x) : 0;
-	    _moveInput.y = _moveInput.y != 0 ? Mathf.Sign(_moveInput.y) : 0;
+	    _moveInputNormalize = _moveInputAction.action.ReadValue<Vector2>();
+	    _moveInput.x = _moveInputNormalize.x != 0 ? Mathf.Sign(_moveInputNormalize.x) : 0;
+	    _moveInput.y = _moveInputNormalize.y != 0 ? Mathf.Sign(_moveInputNormalize.y) : 0;
 	    // Debug.Log("MOVE "+ _moveInput);
-	    if (_moveInput.x != 0)
-		    CheckDirectionToFace(_moveInput.x > 0);
+	    if (_moveInputNormalize.x != 0)
+		    CheckDirectionToFace(_moveInputNormalize.x > 0);
 
     }
 
@@ -75,8 +76,9 @@ public class PlayerMovement : GridXYGameObject
 
     private void FixedUpdate()
 	{
-		Run();
-    }
+		//Run();
+		RunNormalize();
+	}
 
 	//MOVEMENT METHODS
     #region RUN METHODS
@@ -132,6 +134,26 @@ public class PlayerMovement : GridXYGameObject
 		*/
 	}
 
+    private void RunNormalize()
+    {
+	    //Calculate the direction we want to move in and our desired velocity
+	    Vector2 moveDir = _moveInputNormalize; 
+	    float targetSpeed = _movementData.RunMaxSpeed;
+	    float accelRate = Mathf.Abs(moveDir.magnitude) > 0.01f ? _movementData.RunAccelAmount : _movementData.RunDecelerateAmount;
+
+	    //Calculate difference between current velocity and desired velocity
+	    Vector2 velocity = _rigidbody2D.velocity;
+	    Vector2 desiredVelocity = moveDir * targetSpeed;
+	    Vector2 speedDif = desiredVelocity - velocity;
+
+	    //Calculate force to apply to the player
+	    Vector2 force = speedDif * accelRate;
+
+	    //Apply the force to the rigidbody
+	    _rigidbody2D.AddForce(force, ForceMode2D.Force);
+    }
+
+    
 	private void Turn()
 	{
 		//stores scale and flips the player along the x axis, 
