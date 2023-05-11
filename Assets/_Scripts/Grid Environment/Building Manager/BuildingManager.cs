@@ -30,9 +30,8 @@ public class BuildingManager : MonoBehaviour
                 if (CheckValidGridPosition())
                 {
                     PlaceBuilding();
-                    _isHolding = false;
                     
-                    Debug.Log("Successfully Placing");
+                    _isHolding = false;
                 }
                 else
                 {
@@ -44,12 +43,9 @@ public class BuildingManager : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.F))
             {
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                _holdingEnvironmentBehaviour = Instantiate(ResourceManager.Instance.BombTower, mousePosition, Quaternion.identity,
-                    transform);
+                HoldBuilding();
                 _isHolding = true;
                 
-                Debug.Log("BEGIN HOLDING");
             }
         }
     }
@@ -58,6 +54,15 @@ public class BuildingManager : MonoBehaviour
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         (_holdingPivotX, _holdingPivotY) = _gridXY.GetXY(mousePosition);
+    }
+
+    void HoldBuilding()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _holdingEnvironmentBehaviour = Instantiate(ResourceManager.Instance.BombTower, mousePosition, Quaternion.identity,
+            transform);
+        _holdingEnvironmentBehaviour.GetComponent<Collider2D>().enabled = false;
+
     }
     void AdjustToGrid()
     {
@@ -89,5 +94,8 @@ public class BuildingManager : MonoBehaviour
                     _holdingEnvironmentBehaviour.IsObstacle);
             }
         }
+        
+        _holdingEnvironmentBehaviour.GetComponent<Collider2D>().enabled = true;
+
     }
 }

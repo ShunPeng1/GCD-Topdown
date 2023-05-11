@@ -18,8 +18,8 @@ public class HealthBarCanvas : MonoBehaviour
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         gameObject.SetActive(true);
-        _heathBar.value = 1;
-        _heathBar.maxValue = 1;
+        _heathBar.value = 0;
+        _heathBar.maxValue = 0;
         _canvasGroup.alpha = 0;
     }
 
@@ -31,8 +31,8 @@ public class HealthBarCanvas : MonoBehaviour
 
     IEnumerator ShowUntilHide(float currHealth, float maxHealth, bool isShow) 
     {
-        _heathBar.value = currHealth;
         _heathBar.maxValue = maxHealth;
+        _heathBar.value = currHealth;
         _canvasGroup.alpha = isShow? 1 : 0;
         yield return new WaitForSeconds(_showTime);
         
