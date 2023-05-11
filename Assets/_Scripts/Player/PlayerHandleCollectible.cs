@@ -37,50 +37,20 @@ public class PlayerHandleCollectible : MonoBehaviour
         _goldAmountText.text = "x " + _goldAmount;
     }
     private void FixedUpdate() {
-        Collecting();
+        PullCollectible();
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
         Collectible collectible = other.GetComponent<Collectible>();
         if (collectible != null) {
             collectible.Collect();
-            Collected(collectible.CollectibleSoType);
+            DataManager.Instance.AddCollectibleValue(collectible.CollectibleSo.CollectibleType, 1);
         }
     }
 
-    private void Collected(CollectibleSO collectibleSo) {
-        switch (collectibleSo.CollectibleType) {
-            case CollectibleEnum.Wood:
-                _woodAmount += 1;
-                _woodAmountText.text = "x " + _woodAmount;
-                break;
-            case CollectibleEnum.Stone:
-                _stoneAmount += 1;
-                _stoneAmountText.text = "x " + _stoneAmount;
-                break;
-            case CollectibleEnum.Iron:
-                _ironAmount += 1;
-                _ironAmountText.text = "x " + _ironAmount;
-                break;
-            case CollectibleEnum.Bronze:
-                _bronzeAmount += 1;
-                _bronzeAmountText.text = "x " + _bronzeAmount;
-                break;
-            case CollectibleEnum.Silver:
-                _silverAmount += 1;
-                _silverAmountText.text = "x " + _silverAmount;
-                break;
-            case CollectibleEnum.Gold:
-                _goldAmount += 1;
-                _goldAmountText.text = "x " + _goldAmount;
-                break;
-            default:
-                Debug.Log("You've collected something that is out of this world.");
-                break;
-        }
-    }
+    
 
-    private void Collecting() {
+    private void PullCollectible() {
         Collider2D[] collectibleColliders = Physics2D.OverlapCircleAll(transform.position, _collectRange, _collectibleLayerMask);
         foreach (Collider2D collectibleCollider in collectibleColliders) {
             GameObject collectibleGameObject = collectibleCollider.gameObject;

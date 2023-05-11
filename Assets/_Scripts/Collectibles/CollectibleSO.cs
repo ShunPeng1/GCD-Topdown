@@ -13,8 +13,10 @@ public enum CollectibleEnum {
 
 [CreateAssetMenu]
 public class CollectibleSO : ScriptableObject {
-    public Sprite CollectibleSprite;
+    public Sprite CollectibleIcon;
     public CollectibleEnum CollectibleType;
+    public Collectible CollectiblePrefab;
+    
     public int MinAmount;
     public int MaxAmount; 
     public CollectibleSO(CollectibleEnum collectibleType, int maxAmount, int minAmount) {

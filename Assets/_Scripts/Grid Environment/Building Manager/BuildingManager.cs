@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityUtilities;
 
-public class BuildingManager : MonoBehaviour
+public class BuildingManager : SingletonMonoBehaviour<BuildingManager>
 {
     [SerializeField] private GridXY<GridXYCell> _gridXY;
     [SerializeField] private Transform Map;
 
-    private EnvironmentBehaviour _holdingEnvironmentBehaviour;
+    private BuildingBehaviour _holdingEnvironmentBehaviour;
     private int _holdingPivotX, _holdingPivotY;
     private bool _isHolding = false;
 
@@ -30,8 +31,6 @@ public class BuildingManager : MonoBehaviour
                 if (CheckValidGridPosition())
                 {
                     PlaceBuilding();
-                    
-                    _isHolding = false;
                 }
                 else
                 {
@@ -44,8 +43,6 @@ public class BuildingManager : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.F))
             {
                 HoldBuilding();
-                _isHolding = true;
-                
             }
         }
     }
@@ -56,13 +53,14 @@ public class BuildingManager : MonoBehaviour
         (_holdingPivotX, _holdingPivotY) = _gridXY.GetXY(mousePosition);
     }
 
-    void HoldBuilding()
+    public void HoldBuilding()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _holdingEnvironmentBehaviour = Instantiate(ResourceManager.Instance.BombTower, mousePosition, Quaternion.identity,
+        _holdingEnvironmentBehaviour = Instantiate(ResourceManager.Instance.BombTower1, mousePosition, Quaternion.identity,
             transform);
         _holdingEnvironmentBehaviour.GetComponent<Collider2D>().enabled = false;
 
+        _isHolding = true;
     }
     void AdjustToGrid()
     {
@@ -96,6 +94,6 @@ public class BuildingManager : MonoBehaviour
         }
         
         _holdingEnvironmentBehaviour.GetComponent<Collider2D>().enabled = true;
-
+        _isHolding = false;
     }
 }

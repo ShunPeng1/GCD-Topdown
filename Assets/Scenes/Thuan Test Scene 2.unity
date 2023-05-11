@@ -1140,7 +1140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnvironmentOutline: {fileID: 0}
-  BombTower: {fileID: 899351573957828407, guid: 3f53bb73fee7de04bac2ceecedb0a55f, type: 3}
+  BombTower1: {fileID: 0}
+  BombTower2: {fileID: 0}
+  BombTower3: {fileID: 0}
 --- !u!1001 &1166560657
 PrefabInstance:
   m_ObjectHideFlags: 0
