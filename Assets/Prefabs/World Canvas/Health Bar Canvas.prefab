@@ -28,7 +28,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8914980122301945506}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8914980122301945504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,9 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heathBar: {fileID: 8914980122968151171}
-  _low: {r: 1, g: 0, b: 0.019001007, a: 1}
-  _high: {r: 0, g: 1, b: 0, a: 1}
-  _offset: {x: 0, y: 1, z: 0}
+  _showTime: 5
+  _hideSpeed: 0.5
 --- !u!225 &-1569638106904622137
 CanvasGroup:
   m_ObjectHideFlags: 0
