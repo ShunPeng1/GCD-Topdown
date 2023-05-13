@@ -59,7 +59,7 @@ public class BuildingManager : SingletonMonoBehaviour<BuildingManager>
         _holdingEnvironmentBehaviour = Instantiate(ResourceManager.Instance.BombTower1, mousePosition, Quaternion.identity,
             transform);
         _holdingEnvironmentBehaviour.GetComponent<Collider2D>().enabled = false;
-
+        _holdingEnvironmentBehaviour.GetComponent<BuildingAttack>().enabled = false;
         _isHolding = true;
     }
     void AdjustToGrid()
@@ -94,6 +94,7 @@ public class BuildingManager : SingletonMonoBehaviour<BuildingManager>
         }
         
         _holdingEnvironmentBehaviour.GetComponent<Collider2D>().enabled = true;
+        _holdingEnvironmentBehaviour.GetComponent<BuildingAttack>().enabled = true;
         _isHolding = false;
     }
 }
