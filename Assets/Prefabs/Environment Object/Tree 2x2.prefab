@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab3da67a90072a4f9ee348367115c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHitPoint: 5
+  _maxHitPoint: 20
   _healthBarCanvas: {fileID: 1906448308005882464}
 --- !u!114 &2646816661233670250
 MonoBehaviour:

@@ -60,6 +60,7 @@ public class PlayerAttack : MonoBehaviour
                 return DirectionEnum.Down;
         }
     }
+    
     private void PlayerAttacking() {
         if (_attackTimer <= 0) {
             Vector2 attackDir = new Vector2(_mousePos.x - transform.position.x, _mousePos.y - transform.position.y).normalized;

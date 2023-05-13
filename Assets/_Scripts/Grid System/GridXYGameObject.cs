@@ -20,14 +20,23 @@ public class GridXYGameObject : MonoBehaviour
         
         if(!_startInsertGameObjectToGridCell) return;
         
+        SetObstacle(true);
+    }
+
+    void SetObstacle(bool isObstacle)
+    {
         for (int x = 0; x < GridSize.x; x++)
         {
             for (int y = 0; y < GridSize.y; y++)
             {
                 GridXY.SetGridGameObject(this, LowerLeftPivotCell.XIndex + x, LowerLeftPivotCell.YIndex + y, IsObstacle);
-                Debug.Log(gameObject.name+" At " +(LowerLeftPivotCell.XIndex + x) + " " +(LowerLeftPivotCell.YIndex + y));
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        SetObstacle(false);
     }
 
     protected void OnValidate()
