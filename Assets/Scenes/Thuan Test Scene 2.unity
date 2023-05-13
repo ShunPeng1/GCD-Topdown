@@ -2748,7 +2748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnvironmentOutline: {fileID: 0}
-  BombTower1: {fileID: -7765770323916663680, guid: 3f53bb73fee7de04bac2ceecedb0a55f, type: 3}
+  BombTower1: {fileID: 2513089745207273067, guid: 3f53bb73fee7de04bac2ceecedb0a55f, type: 3}
   BombTower2: {fileID: -7765770323916663680, guid: 3f53bb73fee7de04bac2ceecedb0a55f, type: 3}
   BombTower3: {fileID: -7765770323916663680, guid: 3f53bb73fee7de04bac2ceecedb0a55f, type: 3}
 --- !u!1001 &1166560657
@@ -68772,7 +68772,7 @@ GameObject:
   - component: {fileID: 1724231172}
   - component: {fileID: 1724231171}
   - component: {fileID: 1724231170}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 899351573957828401}
   - component: {fileID: 899351573957828402}
   - component: {fileID: 899351573957828400}
-  - component: {fileID: -7765770323916663680}
   - component: {fileID: 3330795999207496859}
   - component: {fileID: 3653917270056169351}
   - component: {fileID: 5534063044731651799}
+  - component: {fileID: 2513089745207273067}
+  - component: {fileID: 854966511388081261}
   m_Layer: 0
   m_Name: Bomb Tower 3x3
   m_TagString: Untagged
@@ -36,6 +37,7 @@ Transform:
   m_Children:
   - {fileID: 899351573109554569}
   - {fileID: 3653917270291697588}
+  - {fileID: 1659695871063937864}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -117,21 +119,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
---- !u!114 &-7765770323916663680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899351573957828403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91a62872975163e4dab70ae4ccda1f53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startInsertGameObjectToGridCell: 1
-  GridSize: {x: 1, y: 1}
-  IsObstacle: 1
 --- !u!114 &3330795999207496859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +160,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _outline: {fileID: 3653917270291697589}
+--- !u!114 &2513089745207273067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899351573957828403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e2788617ee7e4499db3ce58ff33822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startInsertGameObjectToGridCell: 0
+  GridSize: {x: 3, y: 3}
+  IsObstacle: 1
+  _firePoint: {fileID: 1659695871063937864}
+  _enemiesTransforms: []
+  _projectilePrefab: {fileID: 4907443927375589114, guid: a412f453ae7961449856c27b7048c174, type: 3}
+  _projectileSpeed: 10
+  _fireAngle: 45
+  _gravity: 9.8
+  attackCooldown: 1
+  timeSinceLastAttack: 0
+--- !u!58 &854966511388081261
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899351573957828403}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.5, y: 1.5}
+  serializedVersion: 2
+  m_Radius: 10
 --- !u!1 &3653917270291697589
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +304,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!1 &7235645689691766236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1659695871063937864}
+  m_Layer: 0
+  m_Name: Fire Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1659695871063937864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235645689691766236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.207, y: 2.918, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 899351573957828401}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8629877983980284712
 PrefabInstance:
   m_ObjectHideFlags: 0

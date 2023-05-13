@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 2270016744191956698}
   - component: {fileID: 219751718761719238}
   - component: {fileID: 9040154261745749142}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Blank 2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc91e2c3a68d2d479da0d0a7cb2239f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startInsertGameObjectToGridCell: 1
   GridSize: {x: 2, y: 2}
   IsObstacle: 1
 --- !u!114 &2270016744191956698
@@ -262,7 +263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6865792feb750014ab7cecb7bea54571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collectiblePrefab: {fileID: 7817704430541481961, guid: 4430c4ac4617bf348b71d67d19c9910f, type: 3}
   CollectibleSo: {fileID: 11400000, guid: 92ffc91b11ca15a438b096ba74d9767a, type: 2}
   _dropForce: 2000
 --- !u!114 &9040154261745749142

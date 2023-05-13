@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 973047468261058253}
   - component: {fileID: 1228632440492905937}
   - component: {fileID: 8031424262765935745}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rock 2x2
   m_TagString: Enemy
   m_Icon: {fileID: 0}

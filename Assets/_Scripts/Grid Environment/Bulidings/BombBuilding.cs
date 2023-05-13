@@ -17,6 +17,7 @@ public class BombBuilding : BuildingBehaviour
 
     void Update()
     {
+        return;
         // Check if enough time has passed since last attack
         if (timeSinceLastAttack < attackCooldown)
         {
