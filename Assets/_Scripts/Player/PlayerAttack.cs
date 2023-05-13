@@ -18,6 +18,9 @@ public class PlayerAttack : MonoBehaviour
 	#endregion
     [SerializeField] private PlayerAttackHorizontal _playerAttackHorizontal;
     [SerializeField] private PlayerAttackVertical _playerAttackVertical;
+
+    [SerializeField] private AudioClip _audioClip;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -83,7 +86,7 @@ public class PlayerAttack : MonoBehaviour
                     _playerAttackVertical.AttackDown();
                     break;
             }
-
+            
             _attackTimer = _attackCooldown;
         }
     }
