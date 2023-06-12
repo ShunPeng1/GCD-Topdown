@@ -137,7 +137,7 @@ public class PlayerMovement : GridXYGameObject
 		//Calculate force along x-axis to apply to thr player
 		
 		float movementX = speedDifX * accelRateX;
-		float movementY = speedDifY * accelRateX; // Calculate the movement in the Y direction
+		float movementY = speedDifY * accelRateY; // Calculate the movement in the Y direction
 
 		//Convert this to a vector and apply to rigidbody
 		_rigidbody2D.AddForce( new Vector2(movementX, movementY), ForceMode2D.Force);
